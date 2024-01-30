@@ -1,0 +1,29 @@
+nav {
+    font-family: 'Dosis', arial, sans-serif;
+    font-weight: light;
+    color: #393f44;
+    font-size: 1.3rem;
+}
+
+
+form{
+    font-family: 'Open Sans', arial, sans-serif;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.btn-success {
+    background-color:#5cb85c; 
+    color:white;
+    border-color: #5cb85c;
+}
+
+.btn-success:hover {
+    background-color:#53a853; 
+    color:white;
+    border-color: #53a853;
+}
+
+.active {
+    font-weight: 100 !important;
+}

@@ -43,7 +43,7 @@ function getReponseByIdUser($bdd, $idUser) {
 
 function updateReponse($bdd, $idUser, $idProduit, $marqueProduit, $pictoEmballage, $emballagePEE, $packagingTrompeur, $ingredientPEE, $ecolabel, $scannerAvec) {
     $req = "UPDATE questionnaire 
-    SET  marqueProduit = :marqueProduit, pictoEmballage = :pictoEmballage, emballagePEE = :emballagePEE, packagingTrompeur = :packagingTrompeur, ingredientPEE = :ingredientPEE, ecolabel = :ecolabel, scannerAvec = :scannerAvec
+    SET  marqueProduit = :marqueProduit, pictoEmballage = :pictoEmballage, emballagePEE = :emballagePEE, packagingTrompeur = :packagingTrompeur, ingredientPEE = :ingredientPEE, ecolabel = :ecolabel, scannerAvec = :scannerAvec, dateModif = :dateModif
     WHERE :idUser = idUser AND :idProduit = idProduit;";
     $res = $bdd->prepare($req);
     $res->bindParam(":idUser", $idUser);
@@ -55,12 +55,13 @@ function updateReponse($bdd, $idUser, $idProduit, $marqueProduit, $pictoEmballag
     $res->bindParam(":ingredientPEE", $ingredientPEE);
     $res->bindParam(":ecolabel", $ecolabel);
     $res->bindParam(":scannerAvec", $scannerAvec);
+    $res->bindParam(":dateModif", date('Y-m-d h:i:s', time()));
     $res->execute();
 }
 
 function addReponse($bdd, $idUser, $idProduit, $marqueProduit, $pictoEmballage, $emballagePEE, $packagingTrompeur, $ingredientPEE, $ecolabel, $scannerAvec){
-    $req = "INSERT INTO questionnaire(idUser, idProduit, marqueProduit, pictoEmballage, emballagePEE, packagingTrompeur, ingredientPEE, ecolabel, scannerAvec)
-    VALUES(:idUser, :idProduit, :marqueProduit, :pictoEmballage, :emballagePEE, :packagingTrompeur, :ingredientPEE, :ecolabel, :scannerAvec);";
+    $req = "INSERT INTO questionnaire(idUser, idProduit, marqueProduit, pictoEmballage, emballagePEE, packagingTrompeur, ingredientPEE, ecolabel, scannerAvec, dateModif)
+    VALUES(:idUser, :idProduit, :marqueProduit, :pictoEmballage, :emballagePEE, :packagingTrompeur, :ingredientPEE, :ecolabel, :scannerAvec, :dateModif);";
     $res = $bdd->prepare($req);
     $res->bindParam(":idUser", $idUser);
     $res->bindParam(":idProduit", $idProduit);
@@ -71,6 +72,7 @@ function addReponse($bdd, $idUser, $idProduit, $marqueProduit, $pictoEmballage, 
     $res->bindParam(":ingredientPEE", $ingredientPEE);
     $res->bindParam(":ecolabel", $ecolabel);
     $res->bindParam(":scannerAvec", $scannerAvec);
+    $res->bindParam(":dateModif", date('Y-m-d h:i:s', time()));
     $res->execute();
 }
 

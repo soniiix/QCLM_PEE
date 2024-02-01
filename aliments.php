@@ -57,10 +57,10 @@
     include('include/headers.php');
     $lesProduits = getProduitByType($bdd, "aliments");
     ?>
-    
-<!-- <div class="card">
+
+    <!-- <div class="card">
   <div class="card-body"> -->
-    
+
 
     <form action="aliments.php" method="post">
         <table class="table table-striped table-hover align-middle">
@@ -88,34 +88,71 @@
                         <td><input type="text" class="form-control" value="<?php echo $lesReponses[$unProduit['id'] - 1]['pictoEmballage'] ?>" name=<?php echo "pictoEmballage_" . $i ?>></td>
                         <td>
                             <select class="form-select" value="<?php echo $lesReponses[$unProduit['id'] - 1]['emballagePEE'] ?>" name=<?php echo "emballagePEE_" . $i ?>>
-                                <option value="1">Oui</option>
-                                <option value="0">Non</option>
+                                <?php if ($lesReponses[$unProduit['id'] - 1]['emballagePEE'] == '1') { ?>
+                                    <option value="1">Oui</option>
+                                    <option value="0">Non</option>
+                                <?php } else { ?>
+                                    <option value="0">Non</option>
+                                    <option value="1">Oui</option>
+                                <?php } ?>
                             </select>
                         </td>
                         <td>
                             <select class="form-select" value="<?php echo $lesReponses[$unProduit['id'] - 1]['packagingTrompeur'] ?>" name=<?php echo "packagingTrompeur_" . $i ?>>
-                                <option value="1">Oui</option>
-                                <option value="0">Non</option>
+                                <?php if ($lesReponses[$unProduit['id'] - 1]['packagingTrompeur'] == '1') { ?>
+                                    <option value="1">Oui</option>
+                                    <option value="0">Non</option>
+                                <?php } else { ?>
+                                    <option value="0">Non</option>
+                                    <option value="1">Oui</option>
+                                <?php } ?>
                             </select>
                         </td>
                         <td>
                             <select class="form-select" value="<?php echo $lesReponses[$unProduit['id'] - 1]['ingredientPEE'] ?>" name=<?php echo "ingredientPEE_" . $i ?>>
-                                <option value="1">Oui</option>
-                                <option value="0">Non</option>
+                                <?php if ($lesReponses[$unProduit['id'] - 1]['ingredientPEE'] == '1') { ?>
+                                    <option value="1">Oui</option>
+                                    <option value="0">Non</option>
+                                <?php } else { ?>
+                                    <option value="0">Non</option>
+                                    <option value="1">Oui</option>
+                                <?php } ?>
                             </select>
                         </td>
                         <td>
                             <select class="form-select" value="<?php echo $lesReponses[$unProduit['id'] - 1]['ecolabel'] ?>" name=<?php echo "ecolabel_" . $i ?>>
-                                <option value="1">Oui</option>
-                                <option value="0">Non</option>
+                                <?php if ($lesReponses[$unProduit['id'] - 1]['ecolabel'] == '1') { ?>
+                                    <option value="1">Oui</option>
+                                    <option value="0">Non</option>
+                                <?php } else { ?>
+                                    <option value="0">Non</option>
+                                    <option value="1">Oui</option>
+                                <?php } ?>
                             </select>
                         </td>
                         <td>
                             <select class="form-select" value="<?php echo $lesReponses[$unProduit['id'] - 1]['scannerAvec'] ?>" name=<?php echo "scannerAvec_" . $i ?>>
-                                <option value="INCIBeauty">INCIBeauty</option>
-                                <option value="Yuka">Yuka</option>
-                                <option value="Scan4chem">Scan4chem</option>
-                                <option value="Quelcosmetic">Quelcosmetic</option>
+                                <?php if ($lesReponses[$unProduit['id'] - 1]['scannerAvec'] == 'INCIBeauty') { ?>
+                                    <option value="INCIBeauty">INCIBeauty</option>
+                                    <option value="Yuka">Yuka</option>
+                                    <option value="Scan4chem">Scan4chem</option>
+                                    <option value="Quelcosmetic">Quelcosmetic</option>
+                                <?php } elseif ($lesReponses[$unProduit['id'] - 1]['scannerAvec'] == 'Yuka') { ?>
+                                    <option value="Yuka">Yuka</option>
+                                    <option value="INCIBeauty">INCIBeauty</option>
+                                    <option value="Scan4chem">Scan4chem</option>
+                                    <option value="Quelcosmetic">Quelcosmetic</option>
+                                <?php } elseif ($lesReponses[$unProduit['id'] - 1]['scannerAvec'] == 'Scan4chem') { ?>
+                                    <option value="Scan4chem">Scan4chem</option>
+                                    <option value="INCIBeauty">INCIBeauty</option>
+                                    <option value="Yuka">Yuka</option>
+                                    <option value="Quelcosmetic">Quelcosmetic</option>
+                                <?php } else { ?>
+                                    <option value="Quelcosmetic">Quelcosmetic</option>
+                                    <option value="INCIBeauty">INCIBeauty</option>
+                                    <option value="Yuka">Yuka</option>
+                                    <option value="Scan4chem">Scan4chem</option>
+                                <?php } ?>
                             </select>
                         </td>
                         <td class="text-center">
@@ -134,7 +171,7 @@
 
     </form>
     <br>
-  <!-- </div></div> -->
+    <!-- </div></div> -->
 </body>
 
 </html>

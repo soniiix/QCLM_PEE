@@ -8,7 +8,10 @@
         include('include/headers.php');
         $lesProduits = getReponseByIdUser($bdd, 1);
 
-        var_dump($lesProduits);
+        foreach($lesProduits as $unProduit) {
+            var_dump($unProduit["emballagePEE"]);
+            var_dump($unProduit);
+        }
     ?>
 </body>
 </html>

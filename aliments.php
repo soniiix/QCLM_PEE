@@ -53,7 +53,7 @@
 
 <body>
     <?php
-    $activeA = "active";
+    $activeAliments = "active";
     include('include/headers.php');
     $lesProduits = getProduitByType($bdd, "aliments");
     ?>

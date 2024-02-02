@@ -22,7 +22,7 @@
           <a class="nav-link <?php if(isset($activeVetements)) echo $activeVetements ?>" href="../pages/vetements.php" style="color : white;">Vêtements de sports</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php if(isset($activeBalcon)) echo $activeBalconJardin ?>" href="../pages/balcon-jardin.php" style="color : white;">Mon balcon / mon jardin</a>
+          <a class="nav-link <?php if(isset($activeBalconJardin)) echo $activeBalconJardin ?>" href="../pages/balcon-jardin.php" style="color : white;">Mon balcon / mon jardin</a>
         </li>
       </ul>
     </div>

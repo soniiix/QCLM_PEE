@@ -2,7 +2,7 @@
 
 include('../include/questionnaire-debut.php');
 
-$activeJardin = "active";
+$activeBalconJardin = "active";
 
 $lesProduits = getProduitByType($bdd, "Mon balcon/mon jardin");
 

@@ -10,19 +10,19 @@
           <a class="nav-link <?php if(isset($activeAliments)) echo $activeAliments ?>" href="aliments.php" style="color : white;">Aliments</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php if(isset($activeCosmetiques)) echo $activeCosmetiques ?>" href="#" style="color : white;">Cosmétiques et produits d'hygiène</a>
+          <a class="nav-link <?php if(isset($activeCosmetiques)) echo $activeCosmetiques ?>" href="cosmetiques.php" style="color : white;">Cosmétiques et produits d'hygiène</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php if(isset($activeMenagers)) echo $activeMenagers ?>" href="#" style="color : white;">Produits ménagers</a>
+          <a class="nav-link <?php if(isset($activeMenagers)) echo $activeMenagers ?>" href="menagers.php" style="color : white;">Produits ménagers</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php if(isset($activePoeles)) echo $activePoeles ?>" href="#" style="color : white;">Poêles antiadhésives</a>
+          <a class="nav-link <?php if(isset($activePoeles)) echo $activePoeles ?>" href="poeles.php" style="color : white;">Poêles antiadhésives</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php if(isset($activeVetements)) echo $activeVetements ?>" href="#" style="color : white;">Vêtements de sports</a>
+          <a class="nav-link <?php if(isset($activeVetements)) echo $activeVetements ?>" href="vetements.php" style="color : white;">Vêtements de sports</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php if(isset($activeBalcon)) echo $activeBalcon ?>" href="#" style="color : white;">Mon balcon / mon jardin</a>
+          <a class="nav-link <?php if(isset($activeBalcon)) echo $activeBalcon ?>" href="balcon-jardin.php" style="color : white;">Mon balcon / mon jardin</a>
         </li>
       </ul>
     </div>

@@ -5,11 +5,10 @@ nav {
     font-size: 1.3rem;
 }
 
-
 form{
-    font-family: 'Open Sans', arial, sans-serif;
-    margin-left: 15px;
-    margin-right: 15px;
+    font-family: 'Open Sans', arial, sans-serif !important;
+    margin-left: 15px !important;
+    margin-right: 15px !important;
 }
 
 .btn-success {
@@ -27,3 +26,4 @@ form{
 .active {
     font-weight: 100 !important;
 }
+

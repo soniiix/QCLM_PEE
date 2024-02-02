@@ -55,6 +55,7 @@ function updateReponse($bdd, $idUser, $idProduit, $marqueProduit, $pictoEmballag
     $res->bindParam(":ingredientPEE", $ingredientPEE);
     $res->bindParam(":ecolabel", $ecolabel);
     $res->bindParam(":scannerAvec", $scannerAvec);
+    //c'est ici que l'on peut modifier le format de la date de modif (voir plus bas également)
     $res->bindParam(":dateModif", date('Y-m-d h:i:s', time()));
     $res->execute();
 }
@@ -72,6 +73,7 @@ function addReponse($bdd, $idUser, $idProduit, $marqueProduit, $pictoEmballage, 
     $res->bindParam(":ingredientPEE", $ingredientPEE);
     $res->bindParam(":ecolabel", $ecolabel);
     $res->bindParam(":scannerAvec", $scannerAvec);
+    //c'est ici que l'on peut modifier le format de la date de modif
     $res->bindParam(":dateModif", date('Y-m-d h:i:s', time()));
     $res->execute();
 }

@@ -8,6 +8,7 @@
 <script type="text/javascript" src="../script.js"></script>
 <?php
     include("../bdd/biblioAccesBDD.php");
+    include("../bdd/functions.php");
     $bdd = seConnecter();
     date_default_timezone_set('Europe/Paris');
 ?>

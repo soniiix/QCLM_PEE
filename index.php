@@ -4,7 +4,7 @@
     <?php include('include/head.php'); ?>
 </head>
 <body>
-    <?php var_dump($_SERVER['PHP_SELF']) ?>
+    <?php var_dump($_POST) ?>
 </body>
 </html>
 

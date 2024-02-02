@@ -1,9 +1,9 @@
 <?php
 
-include('questionnaire-debut.php');
+include('../include/questionnaire-debut.php');
 
 $activePoeles = "active";
 
 $lesProduits = getProduitByType($bdd, "Poêles antiadhésives");
 
-include('questionnaire-fin.php');
+include('../include/questionnaire-fin.php');

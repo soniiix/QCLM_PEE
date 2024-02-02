@@ -1,9 +1,9 @@
 <?php
 
-include('questionnaire-debut.php');
+include('../include/questionnaire-debut.php');
 
 $activeCosmetiques = "active";
 
 $lesProduits = getProduitByType($bdd, "Cosmétiques et produits hygiène");
 
-include('questionnaire-fin.php');
+include('../include/questionnaire-fin.php');

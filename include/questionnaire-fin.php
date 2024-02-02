@@ -1,4 +1,4 @@
-<?php include('include/headers.php'); ?>
+<?php include('../include/header.php'); ?>
 
 <form action="" method="post">
     <br>

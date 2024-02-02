@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <?php include('include/head.php');
+    <?php include('../include/head.php');
 
     $lesReponses = getReponseByIdUser($bdd, 1);
 
@@ -67,4 +67,4 @@
 
 <body>
     <?php
-    include('include/loading.php');
+    include('../include/loading.php');

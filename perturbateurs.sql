@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 30 jan. 2024 à 14:45
+-- Généré le : ven. 02 fév. 2024 à 11:34
 -- Version du serveur : 8.2.0
 -- Version de PHP : 7.4.33
 
@@ -87,25 +87,35 @@ CREATE TABLE IF NOT EXISTS `questionnaire` (
   `ingredientPEE` tinyint(1) DEFAULT NULL,
   `ecolabel` tinyint(1) DEFAULT NULL,
   `scannerAvec` enum('INCIBeauty','Yuka','Scan4chem','Quelcosmetic') COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `dateModif` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=131 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `questionnaire`
 --
 
-INSERT INTO `questionnaire` (`id`, `idUser`, `idProduit`, `marqueProduit`, `pictoEmballage`, `emballagePEE`, `packagingTrompeur`, `ingredientPEE`, `ecolabel`, `scannerAvec`) VALUES
-(120, 1, 1, 'qzdsqd', 'test wew', 1, 1, 1, 1, 'INCIBeauty'),
-(121, 1, 2, '', '', 1, 1, 1, 1, 'INCIBeauty'),
-(122, 1, 3, 'dqsdqs', '', 1, 1, 1, 1, 'INCIBeauty'),
-(123, 1, 4, '', '', 1, 1, 1, 1, 'INCIBeauty'),
-(124, 1, 5, '', 'qsqsdqs', 1, 1, 1, 1, 'INCIBeauty'),
-(125, 1, 6, 'qsdqs', '', 1, 1, 1, 1, 'INCIBeauty'),
-(126, 1, 7, '', 'qsdqsdqs', 1, 1, 1, 1, 'INCIBeauty'),
-(127, 1, 8, 'qsdqsd', '', 1, 1, 1, 1, 'INCIBeauty'),
-(128, 1, 9, '', 'qsdqsd', 1, 1, 1, 1, 'INCIBeauty'),
-(129, 1, 10, 'qsdqsd', '', 1, 1, 1, 1, 'INCIBeauty'),
-(130, 1, 11, 'qsdqsd', 'qsdqsd', 1, 1, 1, 1, 'INCIBeauty');
+INSERT INTO `questionnaire` (`id`, `idUser`, `idProduit`, `marqueProduit`, `pictoEmballage`, `emballagePEE`, `packagingTrompeur`, `ingredientPEE`, `ecolabel`, `scannerAvec`, `dateModif`) VALUES
+(120, 1, 1, 'ljfshdgkljfdshglkj', 'jgj', 0, 0, 0, 0, 'Quelcosmetic', '2024-02-02 12:25:07'),
+(121, 1, 2, 'hgfh', 'yay', 0, 1, 1, 0, 'Yuka', '2024-02-02 10:52:05'),
+(122, 1, 3, 'dqsdqs', 'coucou', 1, 1, 1, 1, 'Scan4chem', '2024-02-02 10:48:08'),
+(123, 1, 4, 'ngfn', 'bvf', 1, 1, 1, 1, 'Scan4chem', '2024-02-01 03:46:44'),
+(124, 1, 5, 'hfdhjfdhj', 'qsqsdqs', 0, 0, 0, 1, 'Yuka', '2024-02-02 10:47:34'),
+(125, 1, 6, 'qsdqs', '', 1, 1, 1, 1, 'INCIBeauty', '2024-02-02 12:24:47'),
+(126, 1, 7, '', 'qs', 0, 1, 0, 1, 'Quelcosmetic', '2024-02-02 12:24:47'),
+(127, 1, 8, 'qsdqsd', 'ndfngfn', 0, 0, 0, 0, 'INCIBeauty', '2024-02-01 10:32:34'),
+(128, 1, 9, '', 'qsdqsd', 1, 1, 1, 1, 'Yuka', '2024-02-02 12:24:47'),
+(129, 1, 10, 'qsdqsd', '', 0, 1, 1, 0, 'INCIBeauty', '2024-02-02 12:24:47'),
+(130, 1, 11, '', '', 0, 0, 0, 0, 'Quelcosmetic', '2024-02-02 12:24:47'),
+(131, 1, 12, 'dgdfgdf', 'gdfgdfgd', 0, 1, 0, 1, 'Quelcosmetic', '2024-02-02 11:43:31'),
+(132, 1, 13, 'fdgdfgdg', '', 0, 0, 1, 0, 'Yuka', '2024-02-02 12:01:41'),
+(133, 1, 14, 'dfgdfgdfg', '', 1, 0, 0, 0, 'INCIBeauty', '2024-02-02 12:01:41'),
+(134, 1, 15, '', 'dfgdfgfdg', 0, 1, 0, 1, 'Quelcosmetic', '2024-02-02 12:01:41'),
+(135, 1, 16, '', '', 0, 0, 0, 0, 'Scan4chem', '2024-02-02 12:01:41'),
+(136, 1, 17, 'dfgdfgdfg', '', 0, 1, 1, 0, 'Yuka', '2024-02-02 12:01:41'),
+(137, 1, 18, 'dfgdfgdf', '', 0, 0, 0, 0, 'INCIBeauty', '2024-02-02 12:01:41'),
+(138, 1, 19, '', 'fdgfgdfgd', 1, 0, 0, 0, 'Quelcosmetic', '2024-02-02 12:01:41'),
+(139, 1, 20, 'dfgdfgdf', 'dgdfgdfgdf', 0, 0, 1, 0, 'Yuka', '2024-02-02 11:43:31');
 
 -- --------------------------------------------------------
 

@@ -1,5 +1,6 @@
 <?php
 
+
 function seConnecter()
 {
    $serveur = 'mysql:host=localhost;port=3306';
@@ -14,4 +15,3 @@ function seConnecter()
    }
    return $pdo;
 }
-

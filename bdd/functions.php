@@ -63,3 +63,26 @@ function addReponse($bdd, $idUser, $idProduit, $marqueProduit, $pictoEmballage, 
     $res->execute();
 }
 
+function getLesUsers($bdd){
+    $req = "SELECT * FROM users";
+    $res = $bdd->prepare($req);
+    $res->execute();
+    $lesUsers = $res->fetchAll();
+    return $lesUsers;
+}
+
+function addUser($bdd, $id, $nom, $prenom){
+    $lesUsers = getLesUsers($bdd);
+    foreach($lesUsers as $unUser){
+        if ($unUser['id'] == $id){
+            return ;
+        }
+    }
+    $req = "INSERT INTO users(id, nom, prenom)
+    VALUES(:id, :nom, :prenom);";
+    $res = $bdd->prepare($req);
+    $res->bindParam(":id", $id);
+    $res->bindParam(":nom", $nom);
+    $res->bindParam(":prenom", $prenom);
+    $res->execute();
+}

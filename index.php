@@ -20,15 +20,28 @@
 
 <body>
     <?php
-    echo 'Test';
+    session_start();
 
     $lms_url = 'https://demo.dgtlms.fr/';
     $client = new soapclient($lms_url . 'ws.php?wsdl');
-    $userId = $_POST["userid"];
-
+    $userId = array();
+    $userId[0] = $_POST["userid"];
     $userInfos = ($client->__call("getUserInfosByUserId5_2_1", $userId));
-    var_dump($userInfos);
+    
+    $_SESSION["idUser"] = $userInfos['user_id'];
+    var_dump( $_SESSION);
 
+    if($userInfos['level_id'] == 1){
+        //
+    }
+    else{
+        //addUser($bdd, $userInfos['user_id'], $userInfos['lastname'], $userInfos['firstname']);
+
+        
+
+        //$url = 'pages/aliments.php';
+        //header("Location: $url");
+    }
 
 
 

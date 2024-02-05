@@ -20,6 +20,8 @@
 
 <body>
     <?php
+    echo 'Test';
+
     $lms_url = 'https://demo.dgtlms.fr/';
     $client = new soapclient($lms_url . 'ws.php?wsdl');
     $userId = $_POST["userid"];

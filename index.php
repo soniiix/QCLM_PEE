@@ -27,20 +27,15 @@
     $userId = array();
     $userId[0] = $_POST["userid"];
     $userInfos = ($client->__call("getUserInfosByUserId5_2_1", $userId));
-    
-    $_SESSION["idUser"] = $userInfos['user_id'];
-    var_dump( $_SESSION);
 
-    if($userInfos['level_id'] == 1){
-        //
-    }
-    else{
-        //addUser($bdd, $userInfos['user_id'], $userInfos['lastname'], $userInfos['firstname']);
+    $_SESSION['userId'] = $userInfos->user_id;
 
-        
+    if ($userInfos->level_id == 1) {
+    } else {
+        addUser($bdd, $userInfos->user_id, $userInfos->lastname, $userInfos->firstname);
 
-        //$url = 'pages/aliments.php';
-        //header("Location: $url");
+        $url = 'pages/aliments.php';
+        header("Location: $url");
     }
 
 

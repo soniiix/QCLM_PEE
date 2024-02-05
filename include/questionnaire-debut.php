@@ -3,8 +3,11 @@
 
 <head>
     <?php include('../include/head.php');
+    session_start();
 
-    $lesReponses = getReponseByIdUser($bdd, 1);
+    $idUser = $_SESSION['userId'];
+
+    $lesReponses = getReponseByIdUser($bdd, $idUser);
 
     if (isset($_POST['btn-submit']) || isset($_POST['btn-editClicked'])) {
         $lesLignes = $_POST;
@@ -23,7 +26,7 @@
                     if ($exist) {
                         updateReponse(
                             $bdd,
-                            1,
+                            $idUser,
                             $_POST['idProduit_' . $i],
                             $_POST['marqueProduit_' . $i],
                             $_POST['pictoEmballage_' . $i],
@@ -36,7 +39,7 @@
                     } else {
                         addReponse(
                             $bdd,
-                            1,
+                            $idUser,
                             $_POST['idProduit_' . $i],
                             $_POST['marqueProduit_' . $i],
                             $_POST['pictoEmballage_' . $i],
@@ -61,7 +64,7 @@
         $url = $_SERVER['PHP_SELF'] . '?success=' . $success;
         header("Location: $url");
     }
-    $lesReponses = getReponseByIdUser($bdd, 1);
+    $lesReponses = getReponseByIdUser($bdd, $idUser);
     ?>
 </head>
 

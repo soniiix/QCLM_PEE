@@ -33,7 +33,7 @@
             <?php
             $i = 0;
             foreach ($lesProduits as $unProduit) {
-                if ((isset($_GET['editClicked'])) ? $unProduit['id'] == $_GET['editClicked'] : $lesReponses[$unProduit['id'] - 1]['marqueProduit'] == '' || $lesReponses[$unProduit['id'] - 1]['pictoEmballage'] == '') { ?>
+                if ((isset($_GET['editClicked'])) ? $unProduit['id'] == $_GET['editClicked'] : $lesReponses[$unProduit['id'] - 1]['marqueProduit'] == '' && $lesReponses[$unProduit['id'] - 1]['pictoEmballage'] == '') { ?>
                     <tr>
                         <input type="hidden" value="<?php echo $unProduit['id'] ?>" name=<?php echo "idProduit_" . $i ?>>
                         <input type="hidden" value="<?php echo true ?>" name=<?php echo "modified_" . $i ?>>

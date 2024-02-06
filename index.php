@@ -21,40 +21,23 @@
 <body>
     <?php
     session_start();
-
-    $lms_url = 'https://demo.dgtlms.fr/';
-    $client = new soapclient($lms_url . 'ws.php?wsdl');
+    $lms_url = 'https://afpadpc.elmg.net/ws.php?wsdl';
+    $options = ['stream_context' => stream_context_create(['http' => ['header' => "x-api-key: c28fee5256e3d10c09fafd2bca08ba6ee44f269e2c8c2620902cb82f6baea665"]]),];
+    $client = new SoapClient($lms_url, $options);
     $userId = array();
     $userId[0] = $_POST["userid"];
-    $userInfos = ($client->__call("getUserInfosByUserId5_2_1", $userId));
+    $userInfos = ($client->__soapCall("getUserInfosByUserId5_2_1", $userId));
 
     $_SESSION['userId'] = $userInfos->user_id;
 
     if ($userInfos->level_id == 1) {
+        echo "Salut admin";
     } else {
         addUser($bdd, $userInfos->user_id, $userInfos->lastname, $userInfos->firstname);
 
         $url = 'pages/aliments.php';
         header("Location: $url");
     }
-
-
-
-    // Génération d'une clé SSO pour l'utilisateur
-    /*
-    $fct_parameters = array(
-        'uid' => $user_id
-    );
-    $sso_key = ($client->__call("createSSOSecurityKey", $fct_parameters));
-    if ($sso_key) {
-        echo 'Clé sso générée pour l\'utilisateur:' . $sso_key . '<br />';
-        echo 'Adresse de connexion :' . $lms_url . 'sso.php?skey=' . $sso_key . '<br/>';
-    } else {
-        echo 'Echec de la création de la clé sso pour l\'utilisateur <br />';
-    }
-    */
-
-
     ?>
 </body>
 

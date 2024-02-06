@@ -41,7 +41,7 @@ function updateReponse($bdd, $idUser, $idProduit, $marqueProduit, $pictoEmballag
     $res->bindParam(":ecolabel", $ecolabel);
     $res->bindParam(":scannerAvec", $scannerAvec);
     //c'est ici que l'on peut modifier le format de la date de modif (voir plus bas également)
-    $res->bindParam(":dateModif", date('Y-m-d h:i:s', time()));
+    $res->bindParam(":dateModif", date('Y-m-d H:i:s', time()));
     $res->execute();
 }
 
@@ -59,7 +59,7 @@ function addReponse($bdd, $idUser, $idProduit, $marqueProduit, $pictoEmballage, 
     $res->bindParam(":ecolabel", $ecolabel);
     $res->bindParam(":scannerAvec", $scannerAvec);
     //c'est ici que l'on peut modifier le format de la date de modif
-    $res->bindParam(":dateModif", date('Y-m-d h:i:s', time()));
+    $res->bindParam(":dateModif", date('Y-m-d H:i:s', time()));
     $res->execute();
 }
 
@@ -85,4 +85,21 @@ function addUser($bdd, $id, $nom, $prenom){
     $res->bindParam(":nom", $nom);
     $res->bindParam(":prenom", $prenom);
     $res->execute();
+}
+
+function getReponsesByDate($bdd, $dateDebut, $dateFin){
+    
+}
+
+
+function getAllReponses($bdd) {
+    $req = "SELECT users.nom, users.prenom, produits.typeProduit, produits.nomProduit, questionnaire.marqueProduit, questionnaire.pictoEmballage, questionnaire.emballagePEE, questionnaire.packagingTrompeur, questionnaire.ingredientPEE, questionnaire.ecolabel, questionnaire.scannerAvec, questionnaire.dateModif
+    FROM questionnaire
+    INNER JOIN produits ON questionnaire.idProduit = produits.id
+    INNER JOIN users ON questionnaire.idUser = users.id
+    ORDER BY users.nom, users.prenom;";
+    $res = $bdd->prepare($req);
+    $res->execute();
+    $lesReponses = $res->fetchAll();
+    return $lesReponses;
 }

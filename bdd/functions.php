@@ -88,7 +88,18 @@ function addUser($bdd, $id, $nom, $prenom){
 }
 
 function getReponsesByDate($bdd, $dateDebut, $dateFin){
-    
+    $req = "SELECT users.nom, users.prenom, produits.typeProduit, produits.nomProduit, questionnaire.marqueProduit, questionnaire.pictoEmballage, questionnaire.emballagePEE, questionnaire.packagingTrompeur, questionnaire.ingredientPEE, questionnaire.ecolabel, questionnaire.scannerAvec, questionnaire.dateModif
+    FROM questionnaire
+    INNER JOIN produits ON questionnaire.idProduit = produits.id
+    INNER JOIN users ON questionnaire.idUser = users.id
+    WHERE dateModif BETWEEN :dateDebut AND :dateFin;
+    ORDER BY users.nom, users.prenom;";
+    $res = $bdd->prepare($req);
+    $res->bindParam(":dateDebut", $dateDebut);
+    $res->bindParam(":dateFin", $dateFin);
+    $res->execute();
+    $lesReponses = $res->fetchAll();
+    return $lesReponses;
 }
 
 
@@ -102,4 +113,13 @@ function getAllReponses($bdd) {
     $res->execute();
     $lesReponses = $res->fetchAll();
     return $lesReponses;
+}
+
+function checkIfUserExists($bdd, $idUser){
+    $req = "SELECT * FROM users WHERE id = :idUser";
+    $res = $bdd->prepare($req);
+    $res->bindParam(":idUser", $idUser);
+    $res->execute();
+    $leUser = $res->fetch();
+    return (is_null($leUser))?(false):(true);
 }

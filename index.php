@@ -20,24 +20,24 @@
 
 <body>
     <?php
-    session_start();
-    $lms_url = 'https://afpadpc.elmg.net/ws.php?wsdl';
-    $options = ['stream_context' => stream_context_create(['http' => ['header' => "x-api-key: c28fee5256e3d10c09fafd2bca08ba6ee44f269e2c8c2620902cb82f6baea665"]]),];
-    $client = new SoapClient($lms_url, $options);
+
+    $lms_url = 'https://demo.dgtlms.fr/';
+    $client = new soapclient($lms_url . 'ws.php?wsdl');
     $userId = array();
     $userId[0] = $_POST["userid"];
-    $userInfos = ($client->__soapCall("getUserInfosByUserId5_2_1", $userId));
-
-    $_SESSION['userId'] = $userInfos->user_id;
+    $userInfos = ($client->__call("getUserInfosByUserId5_2_1", $userId));
 
     if ($userInfos->level_id == 1) {
-        echo "Salut admin";
+        $url = 'gestion.php?mb542lvl=' . $userInfos->level_id;
+        header("Location: $url");
     } else {
         addUser($bdd, $userInfos->user_id, $userInfos->lastname, $userInfos->firstname);
-
-        $url = 'pages/aliments.php';
+        
+        $url = 'pages/aliments.php?mb542vds=' . $userInfos->user_id;
         header("Location: $url");
     }
+
+
     ?>
 </body>
 

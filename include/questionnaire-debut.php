@@ -3,9 +3,19 @@
 
 <head>
     <?php include('../include/head.php');
-    session_start();
 
-    $idUser = $_SESSION['userId'];
+    if(isset($_GET['mb542vds'])){
+        $idUser = $_GET['mb542vds'];
+        if(!checkIfUserExists($bdd, $idUser)){
+            $url = '../error.php';
+            header("Location: $url");
+        }
+    }
+    else{
+        $url = '../error.php';
+        header("Location: $url");
+    }
+    
 
     $lesReponses = getReponseByIdUser($bdd, $idUser);
 
@@ -58,10 +68,10 @@
         }
     }
     if (isset($_POST['btn-editClicked'])) {
-        $url = $_POST['btn-editClicked'];
+        $url = $_POST['btn-editClicked'] . '&mb542vds=' . $_GET['mb542vds'];
         header("Location: $url");
     } elseif (isset($_POST['btn-submit'])) {
-        $url = $_SERVER['PHP_SELF'] . '?success=' . $success;
+        $url = $_SERVER['PHP_SELF'] . '?success=' . $success . '&mb542vds=' . $_GET['mb542vds'];
         header("Location: $url");
     }
     $lesReponses = getReponseByIdUser($bdd, $idUser);
